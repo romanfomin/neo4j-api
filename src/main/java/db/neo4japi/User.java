@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @NodeEntity
-public class City {
+public class User {
 
     @Id
     @Getter
@@ -22,6 +22,6 @@ public class City {
 
     @Getter
     @Setter
-    @Relationship(type = "FROM_CITY", direction = Relationship.INCOMING)
-    private Set<User> users;
+    @Relationship(type = "FROM_CITY", direction = Relationship.OUTGOING)
+    private Set<City> cities;
 }
