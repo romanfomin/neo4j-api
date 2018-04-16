@@ -4,6 +4,7 @@ import db.neo4japi.model.City;
 import db.neo4japi.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,10 @@ public class CityController {
     @GetMapping("/findall")
     List<City> findAll(){
         return cityRepository.findAll();
+    }
+
+    @GetMapping("/findbyid/{id}")
+    List<City> findById(@PathVariable String id){
+        return cityRepository.findByCityId(id);
     }
 }

@@ -33,8 +33,12 @@ public class City {
         return cityId;
     }
 
-//    @Getter
-//    @Setter
-//    @Relationship(type = "FROM_CITY", direction = Relationship.INCOMING)
-//    private Set<User> users;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
