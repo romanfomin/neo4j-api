@@ -13,5 +13,5 @@ import java.util.List;
 public interface CityRepository extends Neo4jRepository<City,String> {
 
     List<City> findAll();
-    List<City> findByCityId(String id);
+    City findByCityId(String id);
 }

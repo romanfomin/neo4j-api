@@ -23,7 +23,17 @@ public class CityController {
     }
 
     @GetMapping("/findbyid/{id}")
-    List<City> findById(@PathVariable String id){
+    City findById(@PathVariable String id){
         return cityRepository.findByCityId(id);
+    }
+
+    @GetMapping("/add/{id}")
+    City save(@PathVariable String id){
+        return cityRepository.save(new City(id));
+    }
+
+    @GetMapping("/deletebyid/{id}")
+    void delete(@PathVariable String id){
+        cityRepository.delete(findById(id));
     }
 }
