@@ -24,10 +24,8 @@ public class Operator {
     public Operator(){
     }
 
-    public Operator(String operatorId, Set<Tariff> tariffs, Set<Option> options) {
+    public Operator(String operatorId) {
         this.operatorId = operatorId;
-        this.tariffs = tariffs;
-        this.options = options;
     }
 
     public Long getId() {
