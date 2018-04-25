@@ -49,10 +49,8 @@ public class OperatorController {
     }
 
     @GetMapping("/hasoptionunrel/{operatorId}/{optionId}")
-    Operator hasOptionUnrel(@PathVariable String operatorId, @PathVariable String optionId) {
-        Operator operator = operatorRepository.findByOperatorId(operatorId);
-        operator.hasOptionUnrel(optionRepository.findByOptionId(optionId));
-        return operatorRepository.save(operator);
+    void hasOptionUnrel(@PathVariable String operatorId, @PathVariable String optionId) {
+        operatorRepository.hasOptionUnrel(operatorId,optionId);
     }
 
     @GetMapping("/hastariffrel/{operatorId}/{tariffId}")
@@ -63,10 +61,8 @@ public class OperatorController {
     }
 
     @GetMapping("/hastariffunrel/{operatorId}/{tariffId}")
-    Operator hasTariffUnrel(@PathVariable String operatorId, @PathVariable String tariffId) {
-        Operator operator = operatorRepository.findByOperatorId(operatorId);
-        operator.hasTariffUnrel(tariffRepository.findByTariffId(tariffId));
-        return operatorRepository.save(operator);
+    void hasTariffUnrel(@PathVariable String operatorId, @PathVariable String tariffId) {
+        operatorRepository.hasTariffUnrel(operatorId,tariffId);
     }
 
     @GetMapping("/deletebyid/{id}")

@@ -65,9 +65,7 @@ public class UserController {
 
     @GetMapping("/usesoptionunrel/{userId}/{optionId}")
     void usesOptionUnrel(@PathVariable String userId, @PathVariable String optionId) {
-        User user = userRepository.findByUserId(userId);
-//        user.usesOptionUnrel(optionRepository.findByOptionId(optionId));
-//        return userRepository.save(user);
+        userRepository.usesOptionUnrel(userId,optionId);
     }
 
     @GetMapping("/usestariffrel/{userId}/{tariffId}")
@@ -79,9 +77,7 @@ public class UserController {
 
     @GetMapping("/usestariffunrel/{userId}/{tariffId}")
     void usesTariffUnrel(@PathVariable String userId, @PathVariable String tariffId) {
-        User user = userRepository.findByUserId(userId);
-//        user.usesTariffUnrel(tariffRepository.findByTariffId(tariffId));
-//        return userRepository.save(user);
+        userRepository.usesTariffUnrel(userId,tariffId);
     }
 
     @GetMapping("/usesoperatorrel/{userId}/{operatorId}")
@@ -93,9 +89,7 @@ public class UserController {
 
     @GetMapping("/usesoperatorunrel/{userId}/{operatorId}")
     void usesOperatorUnrel(@PathVariable String userId, @PathVariable String operatorId) {
-        User user = userRepository.findByUserId(userId);
-//        user.usesOperatorUnrel(operatorRepository.findByOperatorId(operatorId));
-//        return userRepository.save(user);
+        userRepository.usesOperatorUnrel(userId,operatorId);
     }
 
     @GetMapping("/deletebyid/{id}")

@@ -10,14 +10,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends Neo4jRepository<User,String> {
+public interface UserRepository extends Neo4jRepository<User, String> {
 
     List<User> findAll();
+
     User findByUserId(String id);
 
     @Query("MATCH (User {userId: {0}})-[rel:FROM_CITY]-(City {cityId: {1}}) DELETE rel")
-    User fromCityUnrel(String userId,String cityId);
+    void fromCityUnrel(String userId, String cityId);
 
-//    @Query("MATCH (User {userId: {0}})-[rel:FROM_CITY]-(Option {cityId: {1}}) DELETE rel")
-    void usesOptionUnrel( String userId, String optionId);
+    @Query("MATCH (User {userId: {0}})-[rel:USES_OPTION]-(Option {optionId: {1}}) DELETE rel")
+    void usesOptionUnrel(String userId, String optionId);
+
+    @Query("MATCH (User {userId: {0}})-[rel:USES_TARIFF]-(Tariff {tariffId: {1}}) DELETE rel")
+    void usesTariffUnrel(String userId, String tariffId);
+
+    @Query("MATCH (User {userId: {0}})-[rel:USES_OPERATOR]-(Operator {operatorId: {1}}) DELETE rel")
+    void usesOperatorUnrel(String userId, String operatorId);
 }
