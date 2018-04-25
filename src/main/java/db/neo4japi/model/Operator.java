@@ -28,6 +28,22 @@ public class Operator {
         this.operatorId = operatorId;
     }
 
+    public void hasTariffUnrel(Tariff tariff){
+        for(Tariff c:tariffs){
+            if(c.getTariffId().equals(tariff.getTariffId())){
+                tariffs.remove(c);
+            }
+        }
+    }
+
+    public void hasOptionUnrel(Option option){
+        for(Option c:options){
+            if(c.getOptionId().equals(option.getOptionId())){
+                options.remove(c);
+            }
+        }
+    }
+
     public Long getId() {
         return id;
     }

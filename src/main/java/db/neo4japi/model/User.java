@@ -6,6 +6,7 @@ import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 
@@ -21,20 +22,31 @@ public class User {
     private Set<City> cities=new HashSet<>();
 
     @Relationship(type = "USES_OPTION", direction = Relationship.OUTGOING)
-    private Set<Option> options;
+    private Set<Option> options=new HashSet<>();
 
     @Relationship(type = "USES_TARIFF", direction = Relationship.OUTGOING)
-    private Set<Tariff> tariffs;
+    private Set<Tariff> tariffs=new HashSet<>();
 
     @Relationship(type = "USES_OPERATOR", direction = Relationship.OUTGOING)
-    private Set<Operator> operators;
+    private Set<Operator> operators=new HashSet<>();
+
+    public User(Long id, String userId, Set<City> cities, Set<Option> options, Set<Tariff> tariffs, Set<Operator> operators) {
+        this.id = id;
+        this.userId = userId;
+        this.cities = cities;
+        this.options = options;
+        this.tariffs = tariffs;
+        this.operators = operators;
+    }
 
     public User(){
+
     }
 
     public User(String userId) {
         this.userId = userId;
     }
+
 
     public Long getId() {
         return id;
