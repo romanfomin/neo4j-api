@@ -1,10 +1,7 @@
 package db.neo4japi.model;
 
 import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
-
-import java.util.Set;
 
 
 @NodeEntity
